@@ -12,13 +12,12 @@ var users = []
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
-/**En esta funcion se muestran los datos almacenados dentro de la lista de usuarios */
-app.get('/', (req, res) => {
+//Obtener lista de usuarios
+app.get('/users', (req, res) => {
   res.send(users)
 })
 
-//Request por parametros
-/**En esta funcion se espera recibir la posicion en la lista del usuario que se desea obtener la informacion */
+//Muestra un usuario dependiendo su id
 app.get('/show-user/:id', (req, res) => {
   console.log("Su nombre es:" + users[req.params.id].name)
   console.log("Su edad es:" + users[req.params.id].age)
@@ -26,16 +25,15 @@ app.get('/show-user/:id', (req, res) => {
   res.send(users[req.params.id])
 })
 
-//Request por query string
-/**En esta funcion se espera recibir la posicion en la lista del usuario a eliminar  */
+
+//Elimina un usuario
 app.get('/delete-user', (req, res) => {
   let name = users[req.query.id].name
   users.splice(req.query.id,1)
   res.send("Usuario "+ name +" en la posicion "+req.query.id+" eliminado con exito")
 })
 
-//Request por body
-/** En esta funcion se espera recibir toda la informacion del usuario a agregar, se espera como minimo el nombre, la edad y el genero */
+//Añade un usuario a la lista
 app.post('/create-user', upload.array(), function (req, res, next) {
   users.push(req.body)
   console.log(req.body)
