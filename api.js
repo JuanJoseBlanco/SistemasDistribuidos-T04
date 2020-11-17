@@ -6,11 +6,25 @@ const multer = require('multer') // v1.0.5
 const { urlencoded } = require('express')
 const upload = multer() // for parsing multipart/form-data
 
-var users = []
-
-
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
+var users = [
+    {name: "Juan", age: 12, gender: "M"},
+    {name: "Felipe", age: 12, gender: "M"},
+    {name: "Antonio", age: 22, gender: "M"},
+    {name: "Camilo", age: 42, gender: "M"},
+    {name: "Andrés", age: 58, gender: "M"}
+]
+
+const books = [
+    {name: "The mistery of Miss Tree and Mr E", pages: 250, id: 1},
+    {name: "Una muchacha llamada Lil", pages: 115, id: 2},
+    {name: "El general en su laberinto", pages: 120, id: 3},
+    {name: "Así hablaba Zaratustra", pages: 100, id: 4},
+    {name: "Cartas de una monja enamorada", pages: 456, id: 5}
+]
+
 
 //Obtener lista de usuarios
 app.get('/users', (req, res) => {
@@ -39,16 +53,6 @@ app.post('/create-user', upload.array(), function (req, res, next) {
   console.log(req.body)
   res.json(req.body)
 })
-
-app.use(express.json());
-
-const books = [
-    {name: "The mistery of Miss Tree and Mr E", pages: 250, id: 1},
-    {name: "Una muchacha llamada Lil", pages: 115, id: 2},
-    {name: "El general en su laberinto", pages: 120, id: 3},
-    {name: "Así hablaba Zaratustra", pages: 100, id: 4},
-    {name: "Cartas de una monja enamorada", pages: 456, id: 5},
-]
 
 // Obtener lista de libros
 
@@ -82,7 +86,7 @@ app.put('/books/update/:id', (req, res) =>{
 })
 
 app.get('/', (req, res) => {
-    res.send("Utiliza los comandos /books, ... para entrar en alguna lista")
+    res.send("Utiliza los comandos /books o /users, para entrar en alguna lista")
   })
 
 app.listen(port, () => {
