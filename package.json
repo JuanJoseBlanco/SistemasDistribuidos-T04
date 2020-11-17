@@ -1,0 +1,19 @@
+{
+  "name": "sistemasdistribuidos-t04",
+  "version": "1.0.0",
+  "description": "UPTC - Sistemas Distribuidos T04. Manejo de listas con Express.js y trabajo con Git.",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuanJoseBlanco/SistemasDistribuidos-T04.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JuanJoseBlanco/SistemasDistribuidos-T04/issues"
+  },
+  "homepage": "https://github.com/JuanJoseBlanco/SistemasDistribuidos-T04#readme"
+}
