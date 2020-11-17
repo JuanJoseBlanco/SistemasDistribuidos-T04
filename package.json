@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/JuanJoseBlanco/SistemasDistribuidos-T04/issues"
   },
-  "homepage": "https://github.com/JuanJoseBlanco/SistemasDistribuidos-T04#readme"
+  "homepage": "https://github.com/JuanJoseBlanco/SistemasDistribuidos-T04#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
